@@ -18,7 +18,7 @@ describe '#Word' do
       word1.save()
       word2 = Word.new("Kiwi", nil)
       word2.save()
-      expect(Word.all).to(eq([word2, word1]))
+      expect(Word.all).to(eq([word1, word2]))
     end
   end
 end
