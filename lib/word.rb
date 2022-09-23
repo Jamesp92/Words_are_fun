@@ -9,5 +9,7 @@ class Word
     @id = id || @@total_rows += 1
   end
 
-  def seld.all
+  def self.all
     @@words.values().sort { |a, b| a.word.downcase <=> b.word.downcase}
+  end
+end
