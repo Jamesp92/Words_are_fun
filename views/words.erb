@@ -1,0 +1,25 @@
+<h1>Words are fun!</h1>
+
+<h3>all of your words</h3>
+
+<% if @words.any? %>
+  <ul>
+    <% @words.each do |a=word| %>
+      <li><a href="/albums/<%= word.id %>"><%= word.word %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p> there are no words to show</p>
+<% end %>
+
+<a href="/albums/new">Add a new word </a>
+
+
+<form action="/words">
+  <div class="form-group">
+    <label for="search">Search Query</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn btn-success">Search!</button>
+</form>
+
