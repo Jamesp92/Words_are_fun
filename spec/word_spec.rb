@@ -45,7 +45,7 @@ describe '#Word' do
       word1.save()
       word2 = Word.new("Kiwi", nil)
       word2.save()
-      Word.delete()
+      word1.delete()
       expect(Word.all).to(eq([word2]))
     end
   end
