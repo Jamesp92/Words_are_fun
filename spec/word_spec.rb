@@ -29,7 +29,7 @@ describe '#Word' do
       expect(word).to(eq(word2))
     end
   end
-  decribe('.clear') do 
+  describe('.clear') do 
     it("clears all words") do
       word1 = Word.new("Apple", nil)
       word1.save()
