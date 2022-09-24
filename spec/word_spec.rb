@@ -54,7 +54,7 @@ describe '#Word' do
     word = Word.new("Apple", nil)
     word.save()
     word.update("kiwi")
-    expect(word).to(eq(("kiwi")))
+    expect(word.word).to(eq(("kiwi")))
    end
   end
 
