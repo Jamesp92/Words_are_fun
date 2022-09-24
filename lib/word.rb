@@ -1,12 +1,12 @@
 class Word
-  attr_reader :id, :word
+  attr_reader :id
   attr_accessor :word 
   @@words = {}
   @@total_rows = 0
 
-  def initialize(word, id)
-    @word = word
-    @id = id || @@total_rows += 1
+  def initialize(attributes)
+    @word = attributes.fetch(:word)
+    @id = attributes.fetch(:id) || @@total_rows += 1
   end
 
   def self.all
@@ -23,7 +23,7 @@ class Word
   end
 
   def save
-    @@words[self.id] = Word.new(self.word, self.id)
+    @@words[self.id] = Word.new( word: self.word, id: self.id)
   end
 
   def delete() 
@@ -32,6 +32,6 @@ class Word
 
   def update(word)
     self.word = word
-    @@words[self.id] = Word.new(self.word, self.id)
+    @@words[self.id] = Word.new(word: self.word, id: self.id)
   end
 end

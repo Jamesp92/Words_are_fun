@@ -5,14 +5,14 @@
 <% if @words.any? %>
   <ul>
     <% @words.each do |a=word| %>
-      <li><a href="/albums/<%= word.id %>"><%= word.word %></a></li>
+      <li><a href="/words/<%= word.id %>"><%= word.word %></a></li>
     <% end %>
   </ul>
 <% else %>
   <p> there are no words to show</p>
 <% end %>
 
-<a href="/albums/new">Add a new word </a>
+<a href="/words/new">Add a new word </a>
 
 
 <form action="/words">
