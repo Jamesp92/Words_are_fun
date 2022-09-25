@@ -1,5 +1,5 @@
 class Word
-  attr_reader :id
+  attr_reader :id , :word
   attr_accessor :word 
   @@words = {}
   @@total_rows = 0
@@ -34,4 +34,9 @@ class Word
     self.word = word
     @@words[self.id] = Word.new(word: self.word, id: self.id)
   end
+
+  def self.find(id)
+    @@words[id]
+  end
+
 end

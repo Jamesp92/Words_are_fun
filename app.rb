@@ -5,7 +5,7 @@ require('pry')
 also_reload('lib/**/*.rb')
 
 get('/') do 
-  words = Word.all
+  @words = Word.all
   erb(:words)
 end
 
@@ -20,3 +20,21 @@ post('/words') do
   @words = Word.all()
   erb(:words)
 end
+
+get('/word/:id') do
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
+end
+
+get('/words/:id/edit') do
+  erb(:edit_word)
+end
+
+# patch('/words/:id') do
+#   if params[:word] !=""
+#     @word = Word.find(params[:id].to_i())
+#     @word.update(params[:name])
+#   end
+#   @album = Word.all
+#   erb(:words)
+# end
