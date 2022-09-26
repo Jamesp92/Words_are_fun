@@ -16,15 +16,15 @@ describe '#Word' do
     @word2 = Word.new(@attributes2)
     @word2.save
   end
-end
   describe('.all') do
     it("returns an empty array when there are no words") do 
+      Word.clear
       expect(Word.all).to(eq([]))
     end
   end
-  
   describe('#save') do 
     it('saves a word') do
+      Word.clear
       word1 = Word.new(word: "apple" , id: nil)
       word1.save()
       word2 = Word.new(word: "kiwi" , id: nil)
@@ -32,7 +32,6 @@ end
       expect(Word.all).to(eq([word1, word2]))
     end
   end
-
   describe('#==') do
      it("is the same word even if it has the same attributes as another word") do 
       word = Word.new(word: "apple" , id: nil)
@@ -48,22 +47,24 @@ end
       word2.save()
       Word.clear()
       expect(Word.all).to(eq([]))
-    end
-  end
+     end
+   end
   describe('#delete') do 
-    it("deletes a word by id") do 
+    it("deletes a word by id") do
+      Word.clear
       word1 = Word.new(word: "apple" , id: nil)
       word1.save()
       word2 = Word.new(word: "kiwi" , id: nil)
       word2.save()
       word1.delete()
       expect(Word.all).to(eq([word2]))
-    end
-  end
+     end
+   end
   describe('#update')do
    it("updates a word by id") do 
     word1 = Word.new(word: "apple" , id: nil)
     word1.update("kiwi")
     expect(word1.word).to(eq(("kiwi")))
-   end
+    end
   end
+end
