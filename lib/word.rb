@@ -10,7 +10,7 @@ class Word
   end
 
   def self.all
-    @@words.values().sort { |a, b| a.word.downcase <=> b.word.downcase}
+    @@words.values()
   end
   
   def ==(word_to_compare)
@@ -26,7 +26,7 @@ class Word
     @@words[self.id] = Word.new( word: self.word, id: self.id)
   end
 
-  def delete() 
+  def delete
     @@words.delete(self.id)
   end
 
