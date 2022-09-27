@@ -17,7 +17,6 @@ get('/words') do
   @word = Word.find(params[:id].to_i())
   user_word = params[:word]
   @word = Word.new(word: user_word , id: nil)
-  @word.save()
   @words = Word.all()
   erb(:words)
 end
