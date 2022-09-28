@@ -16,7 +16,7 @@ describe '#Definition' do
 
 
 describe('.all') do 
-  it( "returns an array with words definition will return empty array if no definition") do
+  it( "returns an array with words , definition will return empty array if no definition") do
     expect(Definition.all).to(eq([]))
     end
   end
