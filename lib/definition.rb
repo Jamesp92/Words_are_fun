@@ -7,18 +7,20 @@ class Definition
   @@total_rows = 0
 
   def initialize(attributes)
-    @w_id = attributes.fetch(w_id)
+    @w_id = attributes.fetch(:w_id)
     @definition = attributes.fetch(:definition)
     @id = attributes.fetch(:id) || @@total_rows += 1
   end
 
-  # def ==(def_to_compare)
-  #   (self.word() == def_to_compare.word()) && (self.W_id() == def_to_compare.w_id())
-  # end
-
+  
   def self.all
     @@definition.values
   end
+
+  def ==(def_to_compare)
+    self.definition() == def_to_compare.definition()
+  end
+
 
   # def save
   #   @@definition[self.id] = Definition.new(self.word, self.w_id, self.id)

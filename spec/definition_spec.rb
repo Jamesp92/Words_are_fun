@@ -21,13 +21,20 @@ describe('.all') do
     end
   end
 
-   describe('#==') do
-    it("is the same definition even if it has the same attributes as another definition ") do
-      definition = Definition.new(id: nil, definition: "a tasty treat",w_id: @word.id)
-      definition.save() 
-      definition2 = Definition.new(id: nil, definition: "a tasty treat",w_id: @word.id)
-      definition2.save() 
+  describe('#==') do
+    it("is the same definition if it has the same attributes as another definition") do
+      definition = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
+      definition2 = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
       expect(definition).to(eq(definition2))
     end
   end
+  #  describe('#==') do
+  #   it("is the same definition even if it has the same attributes as another definition ") do
+  #     definition = Definition.new(id: nil, definition: "a tasty treat",w_id: @word.id)
+  #     definition.save() 
+  #     definition2 = Definition.new(id: nil, definition: "a tasty treat",w_id: @word.id)
+  #     definition2.save() 
+  #     expect(definition).to(eq(definition2))
+  #   end
+  # end
 end
