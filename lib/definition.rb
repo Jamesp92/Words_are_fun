@@ -40,19 +40,15 @@ class Definition
   def delete
     @@definitions.delete(self.id)
   end
+
+  def self.find_by_word(word_id)
+    definitions = []
+    @@definitions.values.each do |definition|
+      if definition.w_id == word_id
+        definitions.push(definition)
+      end
+    end
+    definitions
+  end
   
-  # def self.find(id)
-  #   @@definition[id]
-  # end
-
-  # def update(word, w_id)
-  #   self.name = word
-  #   self.w_id = ew_id
-  #   @@definition[self.id] = Definition.new(self.word, self.w_id, self.id)
-  # end
-
-  # def delete
-  #   @@definition.delete(self.id)
-  # end
-
 end
