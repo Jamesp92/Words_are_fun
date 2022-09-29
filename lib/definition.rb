@@ -32,7 +32,10 @@ class Definition
     @@definitions[id]
   end
 
-  
+  def update(updated_definition)
+    self.definition = updated_definition
+    @@definitions[self.id] = Definition.new(definition: self.definition, id: self.id, w_id: self.w_id)
+  end
 
   # def self.find(id)
   #   @@definition[id]

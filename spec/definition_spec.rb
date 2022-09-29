@@ -67,8 +67,8 @@ describe('.all') do
     it("updates a definition by id") do
       definition = Definition.new(@attributes)
       definition.save()
-      definiton.update(@attributes2)
-      expect(definiton.definiton).to(eq(@attributes2))
+      definition.update(@attributes2)
+      expect(definition.definition).to(eq(@attributes2))
     end
   end
 
