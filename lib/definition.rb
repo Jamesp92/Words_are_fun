@@ -25,7 +25,7 @@ class Definition
   end
 
   def self.clear
-    @@definition = {}
+    @@definitions = {}
   end
 
   
