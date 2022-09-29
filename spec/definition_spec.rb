@@ -72,4 +72,14 @@ describe('.all') do
     end
   end
 
+  describe('#delete') do
+    it("deletes an definition by id") do
+      definition = Definition.new(@attributes)
+      definition.save()
+      definition2 = Definition.new(@attributes2)
+      definition2.save()
+      definition.delete()
+      expect(Definition.all).to(eq([definition2]))
+    end
+  end
 end
