@@ -12,20 +12,20 @@ class Definition
     @id = attributes.fetch(:id) || @@total_rows += 1
   end
 
-  
   def self.all
-    @@definition.values
+    @@definitions.values()
   end
 
-  def ==(def_to_compare)
+  def save
+    @@definitions[self.id] = Definition.new(definition: self.definition, id: self.id, w_id: self.w_id)
+  end
+
+  def == (def_to_compare)
     self.definition() == def_to_compare.definition()
   end
 
 
-  # def save
-  #   @@definition[self.id] = Definition.new(self.word, self.w_id, self.id)
-  # end
-
+  
   # def self.find(id)
   #   @@definition[id]
   # end

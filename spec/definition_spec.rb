@@ -17,22 +17,26 @@ describe '#Definition' do
 
 describe('.all') do 
   it( "returns an array with words , definition will return empty array if no definition") do
+    Definition.clear
     expect(Definition.all).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it("saves a definition") do
+      definition = Definition.new(@attributes)
+      definition.save
+      expect(Definition.all).to(eq([definition]))
     end
   end
 
   describe('#==') do
     it("is the same definition if it has the same attributes as another definition") do
       definition = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
+      definition.save
       definition2 = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
+      definition2.save
       expect(definition).to(eq(definition2))
-    end
-  end
-  describe('#save') do
-    it("saves a definition") do
-      definition = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
-      Definition.save()
-      expect(definition.all).to(eq([definition]))
     end
   end
 end
