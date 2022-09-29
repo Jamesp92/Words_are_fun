@@ -24,6 +24,9 @@ class Definition
     self.definition() == def_to_compare.definition()
   end
 
+  def self.clear
+    @@definition = {}
+  end
 
   
   # def self.find(id)
@@ -40,7 +43,4 @@ class Definition
   #   @@definition.delete(self.id)
   # end
 
-  def self.clear
-    @@definition = {}
-  end
 end

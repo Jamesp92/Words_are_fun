@@ -12,6 +12,7 @@ describe '#Definition' do
   @word.save
 
   @attributes = { id: nil , definition: "a tasty treat.", w_id: @word.id}
+  @attributes2 = { id: nil , definition: "this is a definition.", w_id: @word.id}
   end
 
 
@@ -32,6 +33,7 @@ describe('.all') do
 
   describe('#==') do
     it("is the same definition if it has the same attributes as another definition") do
+      
       definition = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
       definition.save
       definition2 = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
@@ -39,4 +41,16 @@ describe('.all') do
       expect(definition).to(eq(definition2))
     end
   end
+
+  describe('.clear') do
+    it("clears all defintions") do
+      definition = Definition.new(@attributes)
+      definition.save()
+      definition2 = Definition.new(@attributes2)
+      definition2.save()
+      Definition.clear()
+      expect(Definition.all).to(eq([]))
+    end
+  end
+
 end
