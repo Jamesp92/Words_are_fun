@@ -28,13 +28,11 @@ describe('.all') do
       expect(definition).to(eq(definition2))
     end
   end
-  #  describe('#==') do
-  #   it("is the same definition even if it has the same attributes as another definition ") do
-  #     definition = Definition.new(id: nil, definition: "a tasty treat",w_id: @word.id)
-  #     definition.save() 
-  #     definition2 = Definition.new(id: nil, definition: "a tasty treat",w_id: @word.id)
-  #     definition2.save() 
-  #     expect(definition).to(eq(definition2))
-  #   end
-  # end
+  describe('#save') do
+    it("saves a definition") do
+      definition = Definition.new(id: nil, definition: "a tasty treat", w_id: @word.id)
+      Definition.save()
+      expect(definition.all).to(eq([definition]))
+    end
+  end
 end
