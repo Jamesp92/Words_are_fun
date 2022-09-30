@@ -1,6 +1,7 @@
 require('sinatra')
 require('sinatra/reloader')
 require('./lib/word')
+require('./lib/definition')
 require('pry')
 also_reload('lib/**/*.rb')
 
@@ -30,7 +31,6 @@ post('/words') do
   erb(:words)
 end
 
-
 get('/word/:id') do
   @word = Word.find(params[:id].to_i())
   erb(:word)
@@ -51,8 +51,9 @@ end
 delete('/word/:id') do
   @word = Word.find(params[:id].to_i)
   @word.delete()
-  @words = Word.all
+  @word = Word.all
   erb(:words)
 end
 
+ 
 

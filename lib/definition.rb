@@ -50,5 +50,6 @@ class Definition
     end
     definitions
   end
+
   
 end
