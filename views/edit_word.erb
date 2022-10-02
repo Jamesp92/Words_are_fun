@@ -14,5 +14,8 @@
 <form action="/word/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
-  <button type="submit" class="btn btn-danger">Delete word</button>
+  <label for="word">delete word</label>
+  <input id="word" name="word" type="text">
+
+  <button type="submit" class="btn btn-danger">Delete</button>
 </form>

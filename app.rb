@@ -56,7 +56,7 @@ delete('/word/:id') do
 end
 
 
-post('/word/:id/definition') do
+post('/word/:id/definition') do 
   @word = Word.find(params[:id].to_i())
   definition = Definition.new(definition: params[:word_definition], id: nil , w_id: @word.id)
   definition.save
@@ -71,10 +71,18 @@ end
 
 patch('/word/:id/definition/:definition_id') do
   @word = Word.find(params[:id].to_i())
+  @definition = Definition.find(params[:id].to_i)
+  @definition.delete()
   @definition = Definition.new(definition: params[:definition_edit], id: nil , w_id: @word.id)
   @definition.update(params[:definition_edit])
   erb(:word)
 end
+
+get('/edit_word') do
+  @word = Word.find(params[:id].to_i())
+  erb(:edit_word)
+end
+
 
 # patch('/word/:id/definition/:definition_id') do
 #   @word = Word.find(params[:id].to_i())
