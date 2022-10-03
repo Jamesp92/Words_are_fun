@@ -1,4 +1,4 @@
-# Word Definer    
+# Words Are Fun   
 
 #### PJ Perry
 
