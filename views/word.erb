@@ -1,5 +1,5 @@
-<h1><a href="/words/<%=@word.id %>/edit"><%= @word.word %></a>:</h1>
-
+<h1><%= @word.word %></h1>
+<a href="/words/<%=@word.id %>/edit"> edit word</a>
   <% if @word.definitions.any? %>
     <ul>
       <% @word.definitions.each do |definition| %>
